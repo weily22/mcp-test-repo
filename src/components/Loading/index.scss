@@ -1,0 +1,72 @@
+.seed-rose-root-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  font-family: 'Poppins', sans-serif;
+  user-select: none;
+  padding: 40px;
+}
+
+/* 种子轻微呼吸 */
+.seed {
+  animation: pulse 2.5s infinite ease-in-out;
+}
+
+/* 玫瑰叶生长 + 摆动 */
+.leaf {
+  transform-origin: 40px 70px; /* 种子顶端 */
+  animation: growSway 3s ease-in-out infinite;
+}
+.leaf-left { animation-delay: 0.2s; }
+.leaf-right { animation-delay: 0.6s; }
+
+/* 根系轻微呼吸 */
+.root {
+  transform-origin: top center;
+  animation: rootPulse 2.5s infinite ease-in-out;
+}
+.root-left { animation-delay: 0.1s; }
+.root-right { animation-delay: 0.3s; }
+
+/* 光环波纹 */
+.ring1 { animation: ripple 3s infinite ease-out; }
+.ring2 { animation: ripple 3s infinite ease-out 0.5s; }
+.ring3 { animation: ripple 3s infinite ease-out 1s; }
+
+/* 文字 */
+.loading-text {
+  margin-top: -40px;
+  font-size: 15px;
+  color: #4a4a4a;
+  letter-spacing: 0.5px;
+  animation: fade 2.5s ease-in-out infinite;
+}
+
+/* 动画关键帧 */
+@keyframes pulse {
+  0%, 100% { transform: rotate(45deg) scale(1); }
+  50% { transform: rotate(45deg) scale(1.15); }
+}
+
+@keyframes growSway {
+  0% { transform: scaleY(0) rotate(0deg); opacity: 0.3; }
+  50% { transform: scaleY(1) rotate(5deg); opacity: 1; }
+  100% { transform: scaleY(1) rotate(-5deg); opacity: 1; }
+}
+
+@keyframes rootPulse {
+  0%, 100% { transform: scaleY(1); opacity: 0.7; }
+  50% { transform: scaleY(1.05); opacity: 1; }
+}
+
+@keyframes ripple {
+  0% { transform: scale(0.2); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes fade {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

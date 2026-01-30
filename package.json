@@ -1,0 +1,20 @@
+{
+  "name": "mcp-test-repo",
+  "version": "1.0.0",
+  "description": "a project for testing mcp（github-workflow-tools）",
+  "main": "index.js",
+  "scripts": {
+    "start": "wpack run start -p 9009",
+    "build": "wpack run build"
+  },
+  "author": "weily",
+  "license": "ISC",
+  "dependencies": {
+    "antd": "^6.2.2",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^7.13.0",
+    "sass": "^1.97.3",
+    "webpack_react_wei": "^1.1.2"
+  }
+}
