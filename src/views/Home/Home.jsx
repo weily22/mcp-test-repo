@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styles from "./Home.module.scss";
+import {Button, Divider, FloatButton} from 'antd';
 
 const letters = "abcdefghijklmnopqrstuvwxyz".split("");
 const Home = () => {
@@ -9,9 +10,7 @@ const Home = () => {
   const [mid, setMid] = useState(null);
   const [found, setFound] = useState(false);
 
-  useEffect(() => {
-    if (found) return;
-
+  const start = () => {
     const timer = setTimeout(() => {
       const m = Math.floor((left + right) / 2);
       setMid(m);
@@ -27,13 +26,13 @@ const Home = () => {
         setRight(m - 1);
       }
     }, 900);
-
-    return () => clearTimeout(timer);
-  }, [left, right, found]);
+  }
 
   return <div className={styles.home}>
     <div className="content">
       <h3>二分查找演示：查找字母 "{target}"</h3>
+      <Divider><Button color="cyan" variant="solid" onClick={start}>开始演示</Button></Divider>
+
       <div className="bar">
         {letters.map((l, i) => {
           const inRange = i >= left && i <= right;
