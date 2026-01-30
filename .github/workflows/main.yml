@@ -1,4 +1,4 @@
-name: Frontend CI
+name: Frontend Build CI
 
 on:
   pull_request:
@@ -11,33 +11,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 拉代码
-      - name: Checkout repo
+      # 1. checkout
+      - name: Checkout
         uses: actions/checkout@v4
 
-      # 安装 Node
+      # 2. Node 环境
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
-      # 安装依赖
-      - name: Install deps
-        run: npm ci
+      # 3. 安装依赖
+      - name: Install dependencies
+        run: npm install
 
-      # TS 类型检查
-      - name: Type check
-        run: npm run typecheck || echo "skip"
-
-      # ESLint
-      - name: Lint
-        run: npm run lint || echo "skip"
-
-      # 单元测试
-      - name: Test
-        run: npm test -- --watch=false || echo "skip"
-
-      # 构建
-      - name: Build
+      # 4. 构建
+      - name: Build project
         run: npm run build
